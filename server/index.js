@@ -1,5 +1,6 @@
-// Servidor principal. Carga automáticamente todos los módulos de la carpeta "rutas".
-// Cada integrante agrega su archivo en server/rutas y no necesita tocar este archivo.
+// Servidor principal. Carga automáticamente todos los módulos de la carpeta "routes".
+// Cada integrante completa su archivo en server/routes y no necesita tocar este archivo.
+try { require('dotenv').config(); } catch (e) { /* dotenv no instalado: se usan los valores por defecto */ }
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
@@ -12,7 +13,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => res.json({ mensaje: 'API de empleados, proyectos, asignaciones y salarios funcionando.' }));
 
-const carpetaRutas = path.join(__dirname, 'rutas');
+const carpetaRutas = path.join(__dirname, 'routes');
 fs.readdirSync(carpetaRutas)
   .filter((archivo) => archivo.endsWith('.js'))
   .sort()
