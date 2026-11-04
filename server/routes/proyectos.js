@@ -1,5 +1,4 @@
 // Módulo PROYECTOS: crear, listar, editar y eliminar.
-// Responsable: <nombre del integrante 1>
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Axios from 'axios';
 import { API, Campo, Lista, Formulario, BotonesForm, colAcciones, contiene, confirmar, exito, pedir } from '../comun';
