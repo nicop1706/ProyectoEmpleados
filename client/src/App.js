@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Empleados from './components/Empleados';
+import Proyectos from './components/Proyectos';
+import Asignaciones from './components/Asignaciones';
+import Salarios from './components/Salarios';
 
 function App() {
+  const [seccion, setSeccion] = useState('empleados');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav>
+        <button onClick={() => setSeccion('empleados')}>Empleados</button>
+        <button onClick={() => setSeccion('proyectos')}>Proyectos</button>
+        <button onClick={() => setSeccion('asignaciones')}>Asignaciones</button>
+        <button onClick={() => setSeccion('salarios')}>Salarios</button>
+      </nav>
+      {seccion === 'empleados' && <Empleados />}
+      {seccion === 'proyectos' && <Proyectos />}
+      {seccion === 'asignaciones' && <Asignaciones />}
+      {seccion === 'salarios' && <Salarios />}
     </div>
   );
 }
-
 export default App;
